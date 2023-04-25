@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.5s;
+}
+
+/* usable tools */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg h1 {
+  font-size: 100px;
+}
+
+/* navigation part */
+header {
+  width: 100%;
+  box-shadow: 0px 0px 15px black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+header img {
+  width: 120px;
+}
+
+header nav .navLinks {
+  display: flex;
+  gap: 60px;
+}
+
+header nav .navLinks a {
+  padding: 25px 0;
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+header nav .navLinks a:hover {
+  color: black;
+  letter-spacing: 1px;
+}
+
+/* home section */
+.home-section {
+  background-image: url('https://cdn.shopify.com/s/files/1/0183/5769/files/rugged_banner_full_a67c7f70-30ae-4d1e-946a-cc90d9495223_2000x.png?v=1651714140');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+
+.home-section .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-section .overlay h1 {
+  font-size: 80px;
+  color: white;
+  font-weight: 400;
+  text-align: center;
+}
+
+.home-section .overlay p {
+  width: 55%;
+  text-align: center;
+  color: white;
+  margin: 20px auto 40px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.home-section .overlay a {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  border: 1px solid white;
+  padding: 12px 24px;
+}
+
+.home-section .overlay a:hover {
+  background-color: white;
+  color: black;
+}
