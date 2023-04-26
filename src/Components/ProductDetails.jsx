@@ -1,14 +1,44 @@
-import React from 'react'
-import Nav from './Nav'
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import Nav from "./Nav";
 
-const ProductDetails = ({title, brand, thumbnail, rating, stock, price, id, category, description}) => {
+const ProductDetails = () => {
+  let { id } = useParams();
+  let [data, setData] = useState({});
+  const api = async () => {
+    let req = await fetch(`https://dummyjson.com/products/${id}`);
+    let res = await req.json();
+    setData(res);
+  };
+  useEffect(() => {
+    api();
+  }, []);
+
   return (
-    <div>
-       <div className="productBox">
-        <img src={thumbnail} alt="" />
-       </div> 
-    </div>
-  )
-}
+    <>
+      <Nav />
+      <section className="productDetails-section">
+        <div className="container">
+          <div className="row abcd">
+            <div className="productImage">
+              <img src={data.thumbnail} alt="" />
+              <Link>Proceed to buy</Link>
+              <Link>Add to cart</Link>
+            </div>
+            <div className="productDetails">
+              <h1 className="title">{data.title}</h1>
+              <p className="description">{data.description}</p>
+              <span className="price">{data.price}$</span>
+              <span className="disc">{data.discount} %off</span>
+              <div className="rating">{data.rating}<i class="fa-solid fa-star"></i></div>
+              <div className="brand">{data.brand}</div>
+              <div className="category">{data.category}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
-export default ProductDetails
+export default ProductDetails;

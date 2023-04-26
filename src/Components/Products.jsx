@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from './Nav'
-import ProductDetails from './ProductDetails'
 import { Link } from 'react-router-dom'
+import SingleProducts from './SingleProducts'
 
 const Products = () => {
   let [state, setState] = useState([])
@@ -10,16 +10,17 @@ const Products = () => {
   }, [])
 
   const arrayApi = async () => {
-    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=12`);
+    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=9`);
     let res = await req.json();
     setState(res.products)
   }
-  console.log(state)
   return (
-    <div>
+    <section className='product-section'>
       <Nav />
-      {state.map((v, i) => <Link to={`/ProductDetails/${v.id}`}><ProductDetails key={i} {...v} /></Link> )}
-    </div>
+      <div className="container product">
+        {state.map((v, i) => <Link to={`/ProductDetails/${v.id}`} key={i}><SingleProducts {...v} /></Link>)}
+      </div>
+    </section>
   )
 }
 

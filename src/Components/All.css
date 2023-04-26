@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   transition: all 0.5s;
 }
 
@@ -18,7 +19,7 @@
   flex-wrap: wrap;
 }
 
-.justify-content-between {
+.justify-productDetails-between {
   justify-content: space-between;
 }
 
@@ -46,11 +47,11 @@
 
 /* navigation part */
 header {
-  width: 100%;
-  box-shadow: 0px 0px 15px black;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  box-shadow: 0px 0px 15px black;
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -79,7 +80,7 @@ header nav .navLinks a:hover {
 
 /* home section */
 .home-section {
-  background-image: url('https://cdn.shopify.com/s/files/1/0183/5769/files/rugged_banner_full_a67c7f70-30ae-4d1e-946a-cc90d9495223_2000x.png?v=1651714140');
+  background-image: url("https://cdn.shopify.com/s/files/1/0183/5769/files/rugged_banner_full_a67c7f70-30ae-4d1e-946a-cc90d9495223_2000x.png?v=1651714140");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -115,7 +116,7 @@ header nav .navLinks a:hover {
   display: block;
   text-align: center;
   margin: 0 auto;
-  width: fit-content;
+  width: fit-productDetails;
   text-decoration: none;
   color: white;
   font-size: 15px;
@@ -127,4 +128,190 @@ header nav .navLinks a:hover {
 .home-section .overlay a:hover {
   background-color: white;
   color: black;
+}
+
+/* product section */
+.product-section .product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 100px;
+}
+
+.product-section .productBox {
+  position: relative;
+  overflow: hidden;
+  padding: 15px;
+}
+
+.product-section .product img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  box-shadow: 0px 0px 15px black;
+}
+
+.product-section .product .productBox::before {
+  position: absolute;
+  content: "View product details";
+  width: 93%;
+  height: 0;
+  visibility: hidden;
+  bottom: 15px;
+  left: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+
+.product-section .product .productBox:hover::before {
+  height: 300px;
+  visibility: visible;
+  top: 15px;
+}
+
+.product-section .product .productBox:hover {
+  transform: scale(105%);
+}
+
+/* product details section */
+.productDetails-section .container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.productDetails-section .abcd {
+  box-shadow: 0px 0px 15px black;
+  width: 100%;
+}
+
+.productDetails-section .abcd .productproductImage {
+  width: 40%;
+  padding: 20px;
+}
+
+.productDetails-section .abcd .productDetails {
+  width: 60%;
+  padding: 20px;
+}
+
+.productDetails-section .abcd .productImage img {
+  width: 100%;
+}
+
+.productImage {
+  width: 40%;
+  padding: 15px;
+  text-align: center;
+}
+
+.productImage a,
+.productDetails a {
+  position: relative;
+  background-color: blue;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  display: inline-block;
+  margin: 20px 50px 0 0;
+  margin-left: 0px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.productImage a:hover,
+.productDetails a:hover {
+  background-color: black;
+}
+
+.productImage a::after,
+.productDetails a::after {
+  position: absolute;
+  content: "";
+  top: -50px;
+  left: -38px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 35px;
+  height: 200px;
+  transform: rotate(-40deg);
+  transition: all 1s;
+}
+
+.productImage a:hover::after,
+.productDetails a:hover::after {
+  left: 195px;
+}
+
+.productDetails .title {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 35px;
+  font-weight: 800;
+  color: black;
+  letter-spacing: 0.5px;
+  margin-bottom: 25px;
+}
+
+.productDetails .description {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 0;
+}
+
+.productDetails .price {
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.productDetails .disc {
+  color: red;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.productDetails .rating {
+  background-color: green;
+  margin: 10px 0;
+  width: fit-productDetails;
+  padding: 5px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+.productDetails .rating i {
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.productDetails .brand {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+.productDetails .category {
+  margin: 5px 0 15px;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  text-transform: capitalize;
+}
+
+.productDetails button {
+  display: block;
+  margin: 0 auto;
 }
