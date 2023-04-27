@@ -19,7 +19,7 @@ const ProductDetails = () => {
       <Nav />
       <section className="productDetails-section">
         <div className="container">
-          <div className="row abcd">
+          <div className="row">
             <div className="productImage">
               <img src={data.thumbnail} alt="" />
               <Link>Proceed to buy</Link>
@@ -29,7 +29,7 @@ const ProductDetails = () => {
               <h1 className="title">{data.title}</h1>
               <p className="description">{data.description}</p>
               <span className="price">{data.price}$</span>
-              <span className="disc">{data.discount} %off</span>
+              <span className="disc">{data.discount} {data.discountPercentage}%off</span>
               <div className="rating">{data.rating}<i class="fa-solid fa-star"></i></div>
               <div className="brand">{data.brand}</div>
               <div className="category">{data.category}</div>

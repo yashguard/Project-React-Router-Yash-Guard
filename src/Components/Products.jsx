@@ -10,10 +10,11 @@ const Products = () => {
   }, [])
 
   const arrayApi = async () => {
-    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=9`);
+    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=12`);
     let res = await req.json();
     setState(res.products)
   }
+  console.log(state)
   return (
     <section className='product-section'>
       <Nav />

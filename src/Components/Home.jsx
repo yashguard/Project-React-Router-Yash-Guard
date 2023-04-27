@@ -1,11 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+import Banner from "./Banner";
 
 const Home = () => {
   return (
     <div>
       <Nav />
+      <Banner/>
       <section className="home-section">
         <div className="overlay">
           <div className="container">
