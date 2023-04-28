@@ -111,7 +111,7 @@ header nav .navLinks a:hover {
 }
 
 .banner-bg a:hover {
-  background-color: #90C7CA;
+  background-color: #90c7ca;
   border-color: black;
 }
 
@@ -216,6 +216,11 @@ header nav .navLinks a:hover {
 }
 
 /* product details section */
+.productDetails-section {
+  background-color: cyan;
+  height: 100vh;
+}
+
 .productDetails-section .container {
   display: flex;
   align-items: center;
@@ -226,16 +231,12 @@ header nav .navLinks a:hover {
   box-shadow: 0px 0px 15px black;
   width: 100%;
   height: 400px;
-}
-
-.productDetails-section .row .productproductImage {
-  width: 40%;
-  padding: 20px;
+  background-color: white;
 }
 
 .productDetails-section .row .productDetails {
   width: 60%;
-  padding: 20px;
+  padding: 15px;
 }
 
 .productDetails-section .row .productImage img {
@@ -246,7 +247,7 @@ header nav .navLinks a:hover {
 .productDetails-section .productImage {
   width: 40%;
   height: 325px;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -348,4 +349,98 @@ header nav .navLinks a:hover {
   font-weight: 400;
   color: black;
   text-transform: capitalize;
+}
+
+/* signup page */
+.form {
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  padding-top: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.form form {
+  color: white;
+  padding: 20px;
+  width: 530px;
+  height: fit-content;
+  box-shadow: 0px 0px 20px black;
+  border-radius: 5px;
+}
+
+.form form label {
+  display: inline-block;
+  width: 38%;
+  padding-right: 20px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form form input {
+  display: inline-block;
+  width: 62%;
+  padding: 3px 0;
+  margin-bottom: 60px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: transparent;
+  outline: none;
+  padding-left: 20px;
+  color: white;
+  text-transform: capitalize;
+}
+
+.form form input:focus {
+  border-color: white;
+}
+
+.form form #submit {
+  padding: 0;
+  width: fit-content;
+  padding: 8px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+  margin: 35px auto 0;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form form #submit:hover {
+  background-color: white;
+  color: black;
+}
+
+.form form h2 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.form form .other-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.form form .other-links a {
+  font-size: 25px;
+  color: white;
+  transition: all 0.1s;
+}
+
+.form form .other-links a:hover {
+  color: cyan;
 }

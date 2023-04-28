@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Banner = () => {
   return (
     <div className='banner-bg'>
-      <Link>SHOP NOW</Link>
+      <Link to='/Signup'>SHOP NOW</Link>
     </div>
   )
 }

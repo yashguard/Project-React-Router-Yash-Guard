@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import SingleProducts from './SingleProducts'
 
 const Products = () => {
+  let data = JSON.parse(localStorage.getItem("signupData")) || [];
+  console.log(data.length)
   let [state, setState] = useState([])
   useEffect(() => {
     arrayApi();
@@ -14,12 +16,11 @@ const Products = () => {
     let res = await req.json();
     setState(res.products)
   }
-  console.log(state)
   return (
     <section className='product-section'>
       <Nav />
       <div className="container product">
-        {state.map((v, i) => <Link to={`/ProductDetails/${v.id}`} key={i}><SingleProducts {...v} /></Link>)}
+        {state.map((v, i) => <Link to={`${data.length > 0 ? `/ProductDetails/${v.id}` : `/Signup`}`} key={i}><SingleProducts {...v} /></Link>)}
       </div>
     </section>
   )

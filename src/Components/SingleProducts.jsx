@@ -7,7 +7,7 @@ const SingleProducts = ({ thumbnail, title, price, description }) => {
             <img src={thumbnail} alt="" />
             <div className="content">
                <h1>{title}</h1>
-               <span>{price} $</span>
+               <span>${price}</span>
                <p>{description}</p>
             </div>
          </div>
