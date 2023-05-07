@@ -86,33 +86,69 @@ header nav .navLinks a:hover {
 
 /* bannersection */
 .banner-bg {
-  background-image: url("https://static.vecteezy.com/system/resources/previews/002/478/302/original/sale-electronics-banner-background-free-vector.jpg");
-  height: 68vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  margin-top: 11px;
-  position: relative;
+  width: 100%;
   margin: 100px 0;
-  margin-top: 200px;
+  overflow: hidden;
+  height: 70vh;
+  background-color: black;
+  text-align: center;
+}
+
+.banner-bg h1 {
+  color: white;
+  margin: 20px 0 0;
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.banner-bg h2 {
+  color: white;
+  font-size: 35px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .banner-bg a {
-  position: absolute;
-  bottom: 0;
-  left: 380px;
-  width: 317px;
-  padding: 20px 20px;
-  font-size: 30px;
+  position: relative;
+  color: #2997ff;
+  text-decoration: none;
+  display: inline-block;
   text-align: center;
-  background-color: black;
-  color: white;
-  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 20px 25px 100px;
+}
+
+.banner-bg a::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: #2997ff;
+  bottom: 0;
+  right: 0;
+  transition: all 0.5s;
+}
+
+.banner-bg a:hover::after {
+  width: 100%;
+  left: 0;
 }
 
 .banner-bg a:hover {
-  background-color: #90c7ca;
-  border-color: black;
+  transform: scale(105%);
+}
+
+.banner-bg a i {
+  font-size: 13px;
+}
+
+.banner-bg video {
+  margin: 0 auto;
+  display: block;
+  width: 70%;
 }
 
 /* home section */
@@ -125,7 +161,7 @@ header nav .navLinks a:hover {
 
 .home-section .overlay {
   background-color: rgba(0, 0, 0, 0.7);
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,11 +203,23 @@ header nav .navLinks a:hover {
   color: black;
 }
 
-/* product section */
+/* products section */
+.product-section {
+  padding-top: 100px;
+}
+.product-section .abcd {
+  width: 28%;
+  background-color: #0F1111;;
+  height: 1000px;
+  padding: 15px;
+  border-radius: 15px;
+  position: sticky;
+  top: 10px;
+}
 .product-section .product {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding-top: 100px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 72%;
 }
 
 .product-section .productBox {
@@ -251,8 +299,8 @@ header nav .navLinks a:hover {
   text-align: center;
 }
 
-.productImage a,
-.productDetails a {
+.productImage button,
+.productDetails button {
   position: relative;
   background-color: blue;
   color: white;
@@ -268,13 +316,13 @@ header nav .navLinks a:hover {
   text-decoration: none;
 }
 
-.productImage a:hover,
-.productDetails a:hover {
+.productImage button:hover,
+.productDetails button:hover {
   background-color: black;
 }
 
-.productImage a::after,
-.productDetails a::after {
+.productImage button::after,
+.productDetails button::after {
   position: absolute;
   content: "";
   top: -50px;
@@ -286,8 +334,8 @@ header nav .navLinks a:hover {
   transition: all 1s;
 }
 
-.productImage a:hover::after,
-.productDetails a:hover::after {
+.productImage button:hover::after,
+.productDetails button:hover::after {
   left: 195px;
 }
 
@@ -353,21 +401,21 @@ header nav .navLinks a:hover {
 
 /* signup page */
 .form {
-  height: 100vh;
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(9, 9, 121, 1) 35%,
     rgba(0, 212, 255, 1) 100%
   );
-  padding-top: 250px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .form form {
   color: white;
-  padding: 20px;
+  padding: 25px;
   width: 530px;
   height: fit-content;
   box-shadow: 0px 0px 20px black;
@@ -437,10 +485,227 @@ header nav .navLinks a:hover {
 
 .form form .other-links a {
   font-size: 25px;
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
   transition: all 0.1s;
 }
 
 .form form .other-links a:hover {
-  color: cyan;
+  color: white;
+}
+
+/* cart page */
+.cart-page {
+  background-color: #fe523a;
+  padding: 100px 0 200px;
+}
+
+.cart-page .container {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 15px black;
+}
+
+.cart-page .heading {
+  border-radius: 20px;
+  background-color: #fe523a;
+  padding: 5px 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 1px solid black;
+}
+
+.cart-page .cart-items {
+  margin: 10px 0;
+}
+
+.cart-page .box .product-details {
+  width: 33%;
+  padding: 15px;
+  padding-left: 0;
+}
+
+.cart-page .box .product-details .image {
+  width: 50%;
+  padding: 15px;
+}
+
+.cart-page .box .product-details .image img {
+  width: 100%;
+}
+
+.cart-page .box .product-details .details {
+  width: 50%;
+  padding: 15px;
+}
+
+.cart-page .box .product-details .details h2 {
+  text-transform: capitalize;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.cart-page .box .product-details .details span {
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 0;
+}
+
+.cart-page .box .product-details .details span span {
+  color: #fe523a;
+}
+
+.cart-page .box .product-details .details button {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: #fe523a;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cart-page .box .product-details .details button::after {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 0;
+  background-color: #fe523a;
+  bottom: 0;
+  right: 0;
+  transition: all 0.5s;
+}
+
+.cart-page .box .product-details .details button:hover {
+  letter-spacing: 1px;
+}
+
+.cart-page .box .product-details .details button:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.cart-page .box .quantity {
+  width: 33%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-page .box .quantity label {
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  padding-right: 5px;
+}
+
+.cart-page .box .quantity input {
+  width: 50px;
+  height: 25px;
+  border: 2px solid black;
+  text-align: center;
+  outline: none;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.cart-page .box .price {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 15px;
+  padding-right: 50px;
+}
+
+.cart-page .blank {
+  width: 34%;
+}
+
+.cart-page .total-part {
+  width: 66%;
+  padding: 50px 0 30px;
+}
+
+.cart-page .total-part hr {
+  border: 2px solid #fe523a;
+  width: 100%;
+}
+
+.cart-page .total-part {
+  padding-left: 110px;
+  padding-right: 50px;
+}
+
+.cart-page .total-part .total {
+  padding: 30px 30px 5px;
+  padding-right: 0;
+  text-transform: capitalize;
+}
+
+.cart-page .total-part .total h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+.cart-page .total-part .total span {
+  color: black;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cart-page .total-part button {
+  position: relative;
+  background-color: #fe523a;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.cart-page .total-part button:hover {
+  transform: scale(103%);
+}
+
+
+.cart-page .total-part button::after {
+  position: absolute;
+  content: "";
+  background-color: rgb(255, 255, 255,0.5);
+  top: -75px;
+  left: -56px;
+  width: 50px;
+  height: 200px;
+  transform: rotate(150deg);
+  transition: all 0.8s;
+}
+
+.cart-page .total-part button:hover::after {
+  left: 218px;
 }

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Nav from "./Nav";
 
 const ProductDetails = () => {
+  let nav = useNavigate();
   let { id } = useParams();
   let [data, setData] = useState({});
   const api = async () => {
@@ -13,6 +14,13 @@ const ProductDetails = () => {
   useEffect(() => {
     api();
   }, []);
+  const addData = () => {
+    nav("/AddToCart")
+    let arrayData = JSON.parse(localStorage.getItem("cartData")) || [];
+    arrayData.push({...data, qty:"1"});
+    localStorage.setItem("cartData",JSON.stringify(arrayData));
+    alert("Your product has successfully add to cart")
+  }
 
   return (
     <>
@@ -22,8 +30,8 @@ const ProductDetails = () => {
           <div className="row">
             <div className="productImage">
               <img src={data.thumbnail} alt="" />
-              <Link>Proceed to buy</Link>
-              <Link to='/AddToCart'>Add to cart</Link>
+              <button>Proceed to buy</button>
+              <button onClick={addData}>Add to cart</button>
             </div>
             <div className="productDetails">
               <h1 className="title">{data.title}</h1>
