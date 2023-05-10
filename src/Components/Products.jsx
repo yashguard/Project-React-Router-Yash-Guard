@@ -10,7 +10,7 @@ const Products = () => {
   }, [])
 
   const arrayApi = async () => {
-    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=50`);
+    let req = await fetch(`https://dummyjson.com/products?pages=1&limit=51`);
     let res = await req.json();
     setState(res.products)
   }

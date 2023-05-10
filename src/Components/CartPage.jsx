@@ -1,25 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const CartPage = ({ brand, price, thumbnail, qty, index }) => {
-  let blankObj = []
-  let [value, setValue] = useState(qty)
-  let [bhav, setBhav] = useState(price)
+const CartPage = ({ brand, price, thumbnail, qty, id }) => {
+  let [value, setValue] = useState(qty);
+  let [bhav, setBhav] = useState(price);
+  let blankObj = [];
+  let abcd = JSON.parse(localStorage.getItem("cartData"));
+  let fixPrice = localStorage.getItem("price")
   const priceValue = (e) => {
-    setValue(e.target.value)
-    setBhav(e.target.value * price)
+    setValue(e.target.value);
+    setBhav(e.target.value * fixPrice);
     let dataObj = {
-      index: index,
+      id: id,
       quantity: e.target.value,
-      price: e.target.value * price
-    }
-    if (index == dataObj.index) {
-      blankObj.push(dataObj)
-      console.log(blankObj)
-    }
-    // localStorage.setItem("quantityPriceNew",JSON.stringify(blankObj))
-  }
+      price: e.target.value * fixPrice,
+    };
+    blankObj.push(dataObj);
+    abcd.map((v) => {
+      if (v.id === dataObj.id) {
+        v.price = dataObj.price;
+        v.qty = dataObj.quantity;
+      }
+    });
+    localStorage.setItem("cartData", JSON.stringify(abcd));
+  };
   return (
-    <div className="box" id={`${index}`}>
+    <div className="box">
       <hr />
       <div className="label">
         <div className="cart-items row justify-content-between">
@@ -30,13 +35,20 @@ const CartPage = ({ brand, price, thumbnail, qty, index }) => {
               </div>
               <div className="details">
                 <h2>{brand}</h2>
-                <span>Price : <span>${price}</span></span>
+                <span>
+                  Price : <span>${fixPrice}</span>
+                </span>
                 <button>Remove</button>
               </div>
             </div>
           </div>
           <div className="quantity">
-            <label>Enter the quantity :</label><input value={value} onChange={(e) => priceValue(e)} type="number" />
+            <label>Enter the quantity :</label>
+            <input
+              value={value}
+              onChange={(e) => priceValue(e)}
+              type="number"
+            />
           </div>
           <div className="price">
             <h3>${bhav}</h3>
@@ -44,7 +56,7 @@ const CartPage = ({ brand, price, thumbnail, qty, index }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;

@@ -17,7 +17,7 @@ const AddToCart = () => {
   }
   useEffect(() => {
     getData()
-  }, [])
+  })
 
   return (
     <>
@@ -30,7 +30,7 @@ const AddToCart = () => {
             <h4>price</h4>
           </div>
           {data.map((v, i) => {
-            return <CartPage key={i} index={i} {...v} />
+            return <CartPage key={i} {...v} />
           })}
           <div className="row">
             <div className="blank"></div>

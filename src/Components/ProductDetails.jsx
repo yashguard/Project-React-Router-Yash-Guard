@@ -15,11 +15,23 @@ const ProductDetails = () => {
     api();
   }, []);
   const addData = () => {
-    nav("/AddToCart")
+    let bol = true
     let arrayData = JSON.parse(localStorage.getItem("cartData")) || [];
-    arrayData.push({...data, qty:"1"});
-    localStorage.setItem("cartData",JSON.stringify(arrayData));
-    alert("Your product has successfully add to cart")
+    arrayData.map((v, i) => {
+      if (data.id === v.id) {
+        return bol = false
+      }
+    })
+    if (bol) {
+      nav("/AddToCart")
+      arrayData.push({ ...data, qty: "1" })
+      localStorage.setItem("cartData", JSON.stringify(arrayData))
+      localStorage.setItem("price", data.price)
+      alert("Your product has successfully add to cart")
+    }
+    else if(!bol) {
+      alert("Product is already available in cart")
+    }
   }
 
   return (
