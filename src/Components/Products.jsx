@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import SingleProducts from "./SingleProducts";
 import StarRegular from "./StarRegular";
 import StarSolid from "./StarSolid";
-import Loader from "./Loader";
 
 const Products = () => {
   let [state, setState] = useState([]);
