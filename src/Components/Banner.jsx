@@ -19,8 +19,8 @@ const Banner = () => {
     <div className='banner-bg'>
       <h1>iPhone 14 Pro Max</h1>
       <h2>Pro.Beyond.</h2>
-      <Link to="/Service">learn more <i class="fa-solid fa-greater-than"></i></Link>
-      <Link to="/Products">shop now <i class="fa-solid fa-greater-than"></i></Link>
+      <Link to="/Service">learn more <i className="fa-solid fa-greater-than"></i></Link>
+      <Link to="/Products">shop now <i className="fa-solid fa-greater-than"></i></Link>
       <video
         playsInline
         loop

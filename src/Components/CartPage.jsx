@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Auth } from "../ContextApi";
 
 const CartPage = ({ brand, price, thumbnail, qty, id }) => {
+  let {product} = useContext(Auth)
+  console.log(product)
   let [value, setValue] = useState(qty);
   let [bhav, setBhav] = useState(price);
   let blankObj = [];

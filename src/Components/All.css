@@ -207,15 +207,44 @@ header nav .navLinks a:hover {
 .product-section {
   padding-top: 100px;
 }
-.product-section .abcd {
+
+.product-section .product-selection {
   width: 28%;
-  background-color: #565e5e;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   height: 1000px;
   padding: 15px;
   border-radius: 15px;
   position: sticky;
   top: 10px;
 }
+
+.product-section .product-selection .search {
+  width: 82%;
+  height: 50px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  color: black;
+  font-weight: 500;
+  padding-left: 15px;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.product-section .product-selection .fa-magnifying-glass {
+  width: 18%;
+  background-color: black;
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 10px 10px 0;
+  border: 1px solid black;
+  font-size: 19px;
+  cursor: pointer;
+}
+
 .product-section .product {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -401,12 +430,10 @@ header nav .navLinks a:hover {
 
 /* signup page */
 .form {
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(2, 0, 36, 1) 0%,
+      rgba(9, 9, 121, 1) 35%,
+      rgba(0, 212, 255, 1) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -697,7 +724,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .cart-page .total-part button::after {
   position: absolute;
   content: "";
-  background-color: rgb(255, 255, 255,0.5);
+  background-color: rgb(255, 255, 255, 0.5);
   top: -75px;
   left: -56px;
   width: 50px;
