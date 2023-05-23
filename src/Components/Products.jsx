@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import SingleProducts from "./SingleProducts";
 import StarRegular from "./StarRegular";
 import StarSolid from "./StarSolid";
+import Loader from "./Loader";
 
 const Products = () => {
   let [state, setState] = useState([]);
@@ -17,42 +18,47 @@ const Products = () => {
     setState(res.products);
   };
   return (
-    <section className="product-section">
+    <>
       <Nav />
-      <div className="container row justify-content-between">
-        <div className="product-selection">
-          <div className="row align-items-center">
-            <input type="search" className="search" />
-            <i className="fa-solid fa-magnifying-glass"></i>
+      <section className={state.length > 0 ? "product-section" : "bg-loader"}>
+        <div className={state.length > 0 ? "container row justify-content-between" : "box"}>
+          <div className="product-selection" style={state.length > 0 ? {display:"block"} : {display:"none"}}>
+            <div className="row align-items-center">
+              <input type="search" className="search" />
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <ul>
+              <h2>category</h2>
+              <li>electronics</li>
+              <li>mens</li>
+              <li>womens</li>
+              <li>kids</li>
+              <li>laptop</li>
+              <li>shirt</li>
+            </ul>
+            <ul>
+              <h2>customer review</h2>
+              <li className="row">
+                <StarRegular />
+                <StarSolid />
+              </li>
+              <li>mens</li>
+              <li>womens</li>
+              <li>kids</li>
+              <li>laptop</li>
+              <li>shirt</li>
+            </ul>
           </div>
-          <ul>
-            <h2>category</h2>
-            <li>electronics</li>
-            <li>mens</li>
-            <li>womens</li>
-            <li>kids</li>
-            <li>laptop</li>
-            <li>shirt</li>
-          </ul>
-          <ul>
-            <h2>customer review</h2>
-            <li className="row"><StarRegular/><StarSolid/></li>
-            <li>mens</li>
-            <li>womens</li>
-            <li>kids</li>
-            <li>laptop</li>
-            <li>shirt</li>
-          </ul>
+          <div className="product">
+            {state.map((v, i) => (
+              <Link to={`/ProductDetails/${v.id}`} key={i}>
+                <SingleProducts {...v} />
+              </Link>
+            ))}
+          </div>
         </div>
-        <div className=" product">
-          {state.map((v, i) => (
-            <Link to={`/ProductDetails/${v.id}`} key={i}>
-              <SingleProducts {...v} />
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

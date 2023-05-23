@@ -8,6 +8,33 @@
   transition: all 0.5s;
 }
 
+/* loader */
+.bg-loader {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-loader .box {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 10px solid white;
+  border-top-color: black;
+  animation: loader 1.5s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* usable tools */
 .container {
   max-width: 1320px;
